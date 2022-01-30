@@ -25,27 +25,16 @@ private:
 public:
     Point()
     {
-        x = 2;
-        y = 3;
+        x = 0;
+        y = 0;
+        cout << this << " construcotr" << endl;
     }
 
     Point(int valueX, int valueY)
     {
         x = valueX;
         y = valueY;
-    }
-
-    Point(int valueX, bool boolean)
-    {
-        x = valueX;
-        if (boolean)
-        {
-            y = 1;
-        }
-        else
-        {
-            y = -1;
-        }
+        cout << this << " construcotr" << endl;
     }
 
     int GetY()
@@ -63,9 +52,9 @@ public:
         x = valueX;
     }
 
-    void SetY(int valueY)
+    void SetY(int y)
     {
-        y = valueY * 2;
+        this->y = y;
     }
 
     void Print()
@@ -120,17 +109,11 @@ public:
     }
 };
 
-void Foo()
-{
-    cout << "=======================" << endl;
-    cout << "Foo Start of execution" << endl;
-    MyClass a(1);
-    cout << "Foo End of execution" << endl;
-}
-
 int main()
 {
-    Foo();
+    Point a;
+    a.SetY(5);
+    a.Print();
 
     return 0;
 }
