@@ -2,6 +2,19 @@
 #include <string>
 using namespace std;
 
+class Human
+{
+public:
+    int age;
+    int weight;
+    string name;
+
+    void Print()
+    {
+        cout << "Name: " << name << "\nWeight: " << weight << "\nAge: " << age << endl;
+    }
+};
+
 class Point
 {
 
@@ -10,6 +23,12 @@ private:
     int y;
 
 public:
+    Point(int valueX, int valueY)
+    {
+        x = valueX;
+        y = valueY;
+    }
+
     int GetY()
     {
         return y;
@@ -37,12 +56,36 @@ public:
     }
 };
 
+class CoffeeGrinder
+{
+private:
+    bool CheckVoltage()
+    {
+        return true;
+    }
+
+public:
+    void Start()
+    {
+        if (CheckVoltage())
+        {
+            cout << "VjuHHH!!" << endl;
+        }
+        else
+        {
+            cout << "Beep Beep" << endl;
+        }
+    }
+};
+
 int main()
 {
-    Point a;
-    a.SetX(5);
-    a.SetY(2);
+    Point a(5, 44);
     a.Print();
 
+    Point b(77, 9);
+    b.Print();
+
+    
     return 0;
 }
