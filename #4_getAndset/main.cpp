@@ -97,13 +97,40 @@ public:
     }
 };
 
+class MyClass
+{
+private:
+    int *data;
+
+public:
+    MyClass(int size)
+    {
+        data = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            data[i] = i;
+        }
+        cout << "Object = " << data << " The constructor called" << endl;
+    }
+
+    ~MyClass()
+    {
+        delete[] data;
+        cout << "Object = " << data << " The destructor called" << endl;
+    }
+};
+
+void Foo()
+{
+    cout << "=======================" << endl;
+    cout << "Foo Start of execution" << endl;
+    MyClass a(1);
+    cout << "Foo End of execution" << endl;
+}
+
 int main()
 {
-    Point a;
-    a.Print();
-
-    Point b(5, 41);
-    b.Print();
+    Foo();
 
     return 0;
 }
