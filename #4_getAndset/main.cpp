@@ -23,10 +23,29 @@ private:
     int y;
 
 public:
+    Point()
+    {
+        x = 2;
+        y = 3;
+    }
+
     Point(int valueX, int valueY)
     {
         x = valueX;
         y = valueY;
+    }
+
+    Point(int valueX, bool boolean)
+    {
+        x = valueX;
+        if (boolean)
+        {
+            y = 1;
+        }
+        else
+        {
+            y = -1;
+        }
     }
 
     int GetY()
@@ -80,12 +99,11 @@ public:
 
 int main()
 {
-    Point a(5, 44);
+    Point a;
     a.Print();
 
-    Point b(77, 9);
+    Point b(5, 41);
     b.Print();
 
-    
     return 0;
 }
