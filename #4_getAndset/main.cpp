@@ -88,32 +88,64 @@ public:
 
 class MyClass
 {
-private:
+public:
     int *data;
 
-public:
     MyClass(int size)
     {
-        data = new int[size];
+        this->Size = size;
+        this->data = new int[size];
         for (int i = 0; i < size; i++)
         {
             data[i] = i;
         }
-        cout << "Object = " << data << " The constructor called" << endl;
+        cout << " The constructor called " << this << endl;
+    }
+
+    MyClass(const MyClass &other)
+    {
+        this->Size = other.Size;
+
+        this->data = new int[other.Size];
+
+        for (int i = 0; i < other.Size; i++)
+        {
+            this->data[i] = other.data[i];
+        }
+
+        cout << " The constructor called " << this << endl;
     }
 
     ~MyClass()
     {
+        cout << " The destructor called " << this << endl;
         delete[] data;
-        cout << "Object = " << data << " The destructor called" << endl;
     }
+
+private:
+    int Size;
 };
+
+void Foo(MyClass value)
+{
+    cout << "The function FOO has been called" << endl;
+}
+
+MyClass Foo2()
+{
+    cout << "The function FOO_2 has been called" << endl;
+    MyClass temp(2);
+
+    return temp;
+}
 
 int main()
 {
-    Point a;
-    a.SetY(5);
-    a.Print();
+    // Foo2();
+
+    MyClass a(10);
+
+    MyClass b(a);
 
     return 0;
 }
